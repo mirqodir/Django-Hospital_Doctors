@@ -1,0 +1,169 @@
+{%extends 'baseru.html'%}
+{%load static %}
+{%block content%}
+
+  <div class="page-banner overlay-dark bg-image" style="background-image: url(https://thumbs.dreamstime.com/b/dead-man-hospital-flat-color-vector-illustration-person-loss-family-grief-body-medical-clinic-patient-doctor-d-cartoons-188955095.jpg);">
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+            <li class="breadcrumb-item"><a href="index.html">Главная страница</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Информация</li>
+          </ol>
+        </nav>
+        <h1 class="font-weight-normal">Yengliklar</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div> <!-- .page-banner -->
+
+  <div class="page-section">
+    <div class="container">
+      <div class="row">
+ 
+        <div class="col-lg-8">
+          <div class="row">
+              {% for i in pageru%}
+              
+            <div class="col-sm-6 py-3">
+   
+              <div class="card-blog">
+    
+                <div class="header">
+
+                  <div class="post-category">
+                   
+                   
+                  </div>
+                  <a href="blog-details" class="post-thumb">
+                    {%if i.image%}
+                    <img src="{{i.image.url}}" alt="">
+                    {%endif%}
+                  </a>
+                </div>
+                <div class="body">
+                  <h5 class="post-title"><a href="{%  url 'post_detailtests' newss_id=i.id %}">{{i.name }}</a></h5>
+                  <div class="site-info">
+                    <div class="avatar mr-2">
+                      <div class="avatar-img">
+                        {%if i.image%}
+                        <img src="{{i.image.url}}" alt="">
+                        {%endif%}
+                      </div>
+                     
+                    </div>
+                    
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+                                               
+              {%endfor%}
+
+            <div class="col-12 my-5">
+              <nav aria-label="Page Navigation">
+                <ul class="pagination justify-content-center">
+
+
+                  {% if pageru.has_previous %}
+                    <button type="button"  class="btn btn-outline-primary"><a href="{% url 'blogru'%}?page={{pageru.previous_page_number }}">титульная страница</button>
+                      {% endif %}
+                      {% if pageru.has_next %}
+                    <button type="button"  class="btn btn-outline-primary"><a href="{% url 'blogru' %}?page={{pageru.next_page_number}}">следущая страница</button>
+                      {%endif%}
+   
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+          </div>
+ <!-- .row -->
+        </div>
+        <div class="col-lg-4">
+          <div class="sidebar">
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Qidirish</h3>
+              <form action="#" class="search-form">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Izlash...">
+                  <button type="submit" class="btn"><span class="icon mai-search"></span></button>
+                </div>
+              </form>
+            </div>
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Kun tartibi</h3>
+              <ul class="categories">
+                <li><a href="#">Ovqatlar <span>12</span></a></li>
+                <li><a href="#">Idishlar <span>22</span></a></li>
+                <li><a href="#">Shirinliklar <span>37</span></a></li>
+                <li><a href="#">Ichimliklar <span>42</span></a></li>
+                <li><a href="#">Voqealar <span>14</span></a></li>
+              </ul>
+            </div>
+
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Shifokorlar</h3>
+                                {% for post in object_list%}
+                  {% if 0 < forloop.counter0 and 4 > forloop.counter0 %}
+              <div class="blog-item">
+                <a class="post-thumb" href="">
+                  {%if post.image%}
+                  <img src="{{post.image.url}}" alt="">
+                  {%endif%}
+                </a>
+                <div class="content">
+                  <h5 class="post-title"><a href="#">{{post.name}}</a></h5>
+                  <div class="meta">
+                    <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
+                    <a href="#"><span class="mai-person"></span> Admin</a>
+                    <a href="#"><span class="mai-chatbubbles"></span> 19</a>
+                  </div>
+                </div>
+              </div>
+              {%endif%}
+              {%endfor%}
+            </div>
+
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Tag Cloud</h3>
+              <div class="tagcloud">
+                <a href="#" class="tag-cloud-link">dish</a>
+                <a href="#" class="tag-cloud-link">menu</a>
+                <a href="#" class="tag-cloud-link">food</a>
+                <a href="#" class="tag-cloud-link">sweet</a>
+                <a href="#" class="tag-cloud-link">tasty</a>
+                <a href="#" class="tag-cloud-link">delicious</a>
+                <a href="#" class="tag-cloud-link">desserts</a>
+                <a href="#" class="tag-cloud-link">drinks</a>
+              </div>
+            </div>
+
+            <div class="sidebar-block">
+              <h3 class="sidebar-title">Paragraph</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+            </div>
+          </div>
+        </div> 
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+  </div> <!-- .page-section -->
+
+  <div class="page-section banner-home bg-image" style="background-image: url(static/assets/img/banner-pattern.svg);">
+    <div class="container py-5 py-lg-0">
+      <div class="row align-items-center">
+        <div class="col-lg-4 wow zoomIn">
+          <div class="img-banner d-none d-lg-block">
+            <img src="{% static 'assets/img/mobile_app.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-8 wow fadeInRight">
+          <h1 class="font-weight-normal mb-3">One Health ilovasi yordamida barcha funksiyalarga osonlik bilan kiring</h1>
+          <a href="#"><img src="{% static 'assets/img/google_play.svg' %}" alt=""></a>
+          <a href="#" class="ml-2"><img src="{% static 'assets/img/app_store.svg' %}" alt=""></a>
+        </div>
+      </div> <!-- .row -->
+    </div> <!-- .container -->
+  </div> <!-- .banner-home -->
+{%endblock content%}

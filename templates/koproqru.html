@@ -1,0 +1,160 @@
+{%extends 'baseru.html'%}
+{% load static %}
+{% block content %}
+
+
+
+    <div class="page-section pb-0">
+      <div class="container">
+        <div class="row align-items-center">
+        	         {% for post in object_list %}
+                    {% if 12 < forloop.counter0 and 14 > forloop.counter0 %}
+          <div class="col-lg-6 py-3 wow fadeInUp">
+          	<h1 class="text-grey mb-4">{{post.namee|safe}}<br></h1>
+          	<p>{{post.tell|safe}}<br></p>
+            <p>{{post.infoo|safe}}<br></p>
+            <p>{{post.stajii|safe}}</p>
+          </div>
+          <div class="col-lg-6 wow fadeInRight" width="1000" height="500">
+            <div class="img-place custom-img-1">
+            	{% if post.image%}
+            	<p>
+              <img src="{{post.image.url}}" alt="">
+                 
+              </p>
+              {%endif%}
+              
+            	
+            </div>
+           
+          </div>
+
+          {%endif%}
+          {%endfor%}
+        </div>
+      </div>
+    </div> <!-- .bg-light -->
+
+
+
+
+        <div class="page-section pb-0">
+      <div class="container">
+        <div class="row align-items-center">
+                   {% for post in object_list %}
+                    {% if 11 < forloop.counter0 and 13 > forloop.counter0 %}
+          <div class="col-lg-6 py-3 wow fadeInUp">
+                        <div class="img-place custom-img-1">
+              {% if post.image%}
+              <p>
+              <img src="{{post.image.url}}" width="600" height="400" data-wow-delay="400ms" alt="">  
+              </p>
+              {%endif%}
+            </div>
+            <h1 class="text-grey mb-4">{{post.namee|safe}}</h1>
+            <h5>{{post.tell|safe}}</h5>
+            
+            
+            
+          </div>
+          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
+            <p>{{post.infoo|safe}}<br></p>
+          </div>
+          {%endif%}
+          {%endfor%}
+        </div>
+      </div>
+    </div> <!-- .bg-light -->
+
+
+
+    <div class="page-section pb-0">
+      <div class="container">
+        <div class="row align-items-center">
+                   {% for post in object_list %}
+                    {% if 9 < forloop.counter0 and 11 > forloop.counter0 %}
+          <div class="col-lg-6 py-3 wow fadeInUp">
+            <h1 class="text-grey mb-4">{{post.namee|safe}}</h1>
+             
+            <p>{{post.infoo|safe}}<br></p>
+          </div>
+          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
+            <div class="img-place custom-img-1">
+              {% if post.image%}
+              <p>
+              <img src="{{post.image.url}}" width="500" height="500"alt="">
+                 
+              </p>
+              {%endif%}
+              
+              
+            </div>
+          
+          </div>
+          {%endif%}
+          {%endfor%}
+        </div>
+      </div>
+    </div> <!-- .bg-light -->
+
+
+         <div class="page-section pb-0">
+      <div class="container">
+        <div class="row align-items-center">
+                   {% for post in object_list %}
+                    {% if 10 < forloop.counter0 and 12 > forloop.counter0 %}
+          <div class="col-lg-6 py-3 wow fadeInUp">
+                        <div class="img-place custom-img-1">
+              {% if post.image%}
+              <p>
+              <img src="{{post.image.url}}" width="600" height="400" data-wow-delay="400ms" alt="">  
+              </p>
+              {%endif%}
+            </div>
+
+          </div>
+          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
+            <h1>{{post.namee|safe}}</h1>
+            <p>{{post.infoo|safe}}<br></p>
+          </div>
+          {%endif%}
+          {%endfor%}
+        </div>
+      </div>
+    </div> <!-- .bg-light -->
+
+
+ <div class="page-section pb-0">
+      <div class="container">
+        <div class="row align-items-center">
+                   {% for post in object_list %}
+                    {% if 13 < forloop.counter0 and 15 > forloop.counter0 %}
+          <div class="col-lg-6 py-3 wow fadeInUp">
+            <h1 class="text-grey mb-4">{{post.namee|safe}}</h1>
+            
+            <p>{{post.infoo|safe}}<br></p>
+          </div>
+          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
+            <div class="img-place custom-img-1">
+              {% if post.image%}
+              <p>
+              <img src="{{post.image.url}}" width="1100" height="700"alt="">
+                 
+              </p>
+              {%endif%}
+              
+              
+            </div>
+          
+          </div>
+          {%endif%}
+          {%endfor%}
+        </div>
+      </div>
+    </div> <!-- .bg-light -->
+ 
+
+
+
+
+{% endblock content %}

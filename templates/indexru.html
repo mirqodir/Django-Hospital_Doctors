@@ -1,0 +1,357 @@
+{% extends 'baseru.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+  <div class="page-hero bg-image overlay-dark" style='background-image: url("https://thumbs.dreamstime.com/b/dead-man-hospital-flat-color-vector-illustration-person-loss-family-grief-body-medical-clinic-patient-doctor-d-cartoons-188955095.jpg");'>
+    <div class="hero-section">
+      <div class="container text-center wow zoomIn">
+        <span class="subhead">Мы стремимся сохранить ваше здоровье и сделать вашу жизнь счастливее с этим</span>
+        <h1 class="display-4">Здоровая жизнь</h1>
+        <a href="#" class="btn btn-primary">Связаться с нами</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="bg-light">
+    <div class="page-section py-3 mt-md-n5 custom-index">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-secondary text-white"> 
+                <span class="mai-chatbubbles-outline"></span>
+              </div>
+              <p><span>Врачи</span> контакт</p>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-primary text-white">
+                <span class="mai-shield-checkmark"></span>
+              </div>
+              <p><span></span> Здравоохранение</p>
+            </div>
+          </div>
+          <div class="col-md-4 py-3 py-md-0">
+            <div class="card-service wow fadeInUp">
+              <div class="circle-shape bg-accent text-white">
+                <span class="mai-basket"></span>
+              </div>
+              <p><span>Здоровье</span> складская аптека</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .page-section -->
+
+    <div class="page-section pb-0">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 py-3 wow fadeInUp">
+                        {%for post in data%}
+            {% if 8 < forloop.counter0 and 10 > forloop.counter0 %}
+            <h1>Добро пожаловать на сайт нашей больницы<br></h1>
+            <h1 class="text-grey mb-4">{{post.namee|safe}}</h1>
+            <p>{{post.infoo|safe}}</p>
+
+            <a href="{% url 'koproqru' %}" class="btn btn-primary">Учить больше</a>
+
+          </div>
+          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
+            <div class="img-place custom-img-1">
+              {% if post.image %}
+              <img src="{{post.image.url}}" alt="">
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+                  {%endif%}
+            {%endfor%}
+    </div> <!-- .bg-light -->
+  </div> <!-- .bg-light -->
+
+  <div class="page-section">
+    <div class="container">
+      <h1 class="text-center mb-5 wow fadeInUp">Наши врачи</h1>
+<!-- search -->
+              <form >
+                <div class = "input-group">
+                <div class="input-group-prepend">
+                </div>
+            <input name ="q"  type="text" class="form-control form-control-lg" placeholder="Поиск.."  >
+            <button class="btn btn-danger btn-lg">Поиск</button>
+          </div>
+        </form>
+
+<!-- search -->
+      <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">
+        <div class="item">
+          {% for post in data %}
+          {% if forloop.counter0 < 1 %}
+          <div class="card-doctor">
+            <div class="header">
+              {% if post.image %}
+              <img src="{{ post.image.url }}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+              {% endif %}
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0"><a href="{% url 'post_detailru' post.pk %}">{{ post.namee| safe  }}</a></p>
+
+              <span class="text-sm text-grey"></span>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        
+
+
+
+        <div class="item">
+          {% for post in data %}
+          {% if 0 < forloop.counter0 and 2 > forloop.counter0 %}
+
+          <div class="card-doctor">
+            <div class="header">
+              {% if post.image %}
+              <img src="{{ post.image.url }}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+              {% endif %}
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0"><a href="{% url 'post_detailru' post.pk %}">{{ post.namee| safe  }}</a></p>
+              <span class="text-sm text-grey"></span>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        
+
+
+
+
+        <div class="item">
+          {% for post in data %}
+          {% if 1 < forloop.counter0 and 3 > forloop.counter0 %}
+          <div class="card-doctor">
+            <div class="header">
+              {% if post.image %}
+              <img src="{{ post.image.url }}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+              {% endif %}
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0"><a href="{% url 'post_detailru' post.pk %}">{{ post.namee| safe  }}</a></p>
+              <span class="text-sm text-grey"></span>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        
+
+
+        <div class="item">
+          {% for post in data %}
+          {% if 2 < forloop.counter0 and 4 > forloop.counter0 %}
+
+          <div class="card-doctor">
+            <div class="header">
+              {% if post.image %}
+              <img src="{{ post.image.url }}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+              {% endif %}
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0"><a href="{% url 'post_detailru' post.pk %}">{{ post.namee| safe  }}</a></p>
+              <span class="text-sm text-grey"></span>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        
+
+
+        <div class="item">
+          {% for post in data %}
+          {% if 3 < forloop.counter0 and 5 > forloop.counter0 %}
+
+          <div class="card-doctor">
+            <div class="header">
+              {% if post.image %}
+              <img src="{{ post.image.url }}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+              {% endif %}
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0"><a href="{% url 'post_detailru' post.pk %}">{{ post.namee| safe  }}</a></p>
+            <!--   <span class="text-sm text-grey">{{ post.info| safe  }}</span> -->
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      
+      <div class="item">
+          {% for post in data %}
+          {% if 4 < forloop.counter0 and 6 > forloop.counter0 %}
+
+          <div class="card-doctor">
+            <div class="header">
+              {% if post.image %}
+              <img src="{{ post.image.url }}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+              {% endif %}
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0"><a href="{% url 'post_detailru' post.pk %}">{{ post.namee| safe  }}</a></p>
+              <!-- <span class="text-sm text-grey">{{ post.info| safe  }}</span> -->
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+              <div class="item">
+          {% for post in data %}
+          {% if 5 < forloop.counter0 and 7 > forloop.counter0 %}
+
+          <div class="card-doctor">
+            <div class="header">
+              {% if post.image %}
+              <img src="{{ post.image.url }}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+              {% endif %}
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0"><a href="{% url 'post_detailru' post.pk %}">{{ post.namee| safe  }}</a></p>
+              <!-- <span class="text-sm text-grey">{{ post.info| safe  }}</span> -->
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      
+                    <div class="item">
+          {% for post in data %}
+          {% if 6 < forloop.counter0 and 8 > forloop.counter0 %}
+
+          <div class="card-doctor">
+            <div class="header">
+              {% if post.image %}
+              <img src="{{ post.images.url }}" alt="">
+              <div class="meta">
+                <a href="#"><span class="mai-call"></span></a>
+                <a href="#"><span class="mai-logo-whatsapp"></span></a>
+              </div>
+              {% endif %}
+            </div>
+            <div class="body">
+              <p class="text-xl mb-0"><a href="{% url 'post_detailru' post.pk %}">{{ post.namee| safe  }}</a></p>
+              <!-- <span class="text-sm text-grey">{{ post.info| safe  }}</span> -->
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+        
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="page-section bg-light">
+    <div class="container">
+      <h1 class="text-center wow fadeInUp">последние новости</h1>
+      <div class="row mt-5">
+                {% for post in data %}
+         {% if 14 < forloop.counter0 and 18 > forloop.counter0 %}
+        <div class="col-lg-4 py-2 wow zoomIn">
+          <div class="card-blog">
+            <div class="header">
+              <div class="post-category">
+                <a href="#">Covid19</a>
+              </div>
+              <a href="{% url 'blogru' %}" class="post-thumb">
+                {%if post.image%}
+                <img src="{{post.image.url}}" alt="">
+                {%endif%}
+              </a>
+            </div>
+            <div class="body">
+              <h5 class="post-title"><a href="{% url 'post_detailss' post.pk %}">{{post.namee}}</a></h5>
+              <div class="site-info">
+                <div class="avatar mr-2">
+                  <div class="avatar-img">
+                    <img src="{{post.imagee.url}}" alt="">
+                  </div>
+                  <span>Roger Adams</span>
+                </div>
+                <span class="mai-time"></span> 1 week ago
+              </div>
+            </div>
+          </div>
+        </div>
+        {%endif%}
+        {%endfor%}
+     
+      
+
+        <div class="col-12 text-center mt-4 wow zoomIn">
+          <a href="blog.html" class="btn btn-primary">Прочитайте больше</a>
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- .page-section -->
+
+
+
+  <div class="page-section banner-home bg-image" style="background-image: url(static/assets/img/banner-pattern.svg);">
+    <div class="container py-5 py-lg-0">
+      <div class="row align-items-center">
+        <div class="col-lg-4 wow zoomIn">
+          <div class="img-banner d-none d-lg-block">
+            <img src="../assets/img/mobile_app.png" alt="">
+          </div>
+        </div>
+        <div class="col-lg-8 wow fadeInRight">
+          <h1 class="font-weight-normal mb-3">Get easy access of all features using One Health Application</h1>
+          <a href="#"><img src="../assets/img/google_play.svg" alt=""></a>
+          <a href="#" class="ml-2"><img src="../assets/img/app_store.svg" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div> <!-- .banner-home -->
+
+{% endblock content %}
